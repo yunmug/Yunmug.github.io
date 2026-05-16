@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一篇博文 — 我的博客</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      background: #f5f5f5; color: #333; line-height: 1.8;
+    }
+    header {
+      background: #fff; border-bottom: 1px solid #e0e0e0; padding: 0 24px;
+    }
+    .header-inner {
+      max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px;
+    }
+    .logo { font-size: 1.1rem; font-weight: 700; color: #1a1a1a; text-decoration: none; }
+    nav a { color: #666; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
+    nav a:hover { color: #1a1a1a; }
+
+    article {
+      max-width: 720px; margin: 40px auto; padding: 40px 48px; background: #fff; border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    article time { color: #999; font-size: 0.9rem; }
+    article h1 { font-size: 1.8rem; margin: 12px 0 24px; color: #1a1a1a; }
+    article p { margin-bottom: 16px; font-size: 1rem; color: #444; }
+    article .back { display: inline-block; margin-top: 24px; color: #667eea; text-decoration: none; font-size: 0.9rem; }
+    article .back:hover { text-decoration: underline; }
+
+    footer {
+      background: #fff; border-top: 1px solid #e0e0e0; text-align: center; padding: 24px; color: #999; font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">我的博客</a>
+      <nav><a href="/">首页</a></nav>
+    </div>
+  </header>
+
+  <article>
+    <time>2026-05-16</time>
+    <h1>第一篇博文</h1>
+    <p>终于有了自己的博客。不需要复杂的框架，不需要动态服务器，几行 HTML 就足够开始写作。</p>
+    <p>写作是一种思考。把脑子里的想法整理成文字，本身就是一次深度的自我对话。希望通过这个博客，记录下学习过程中的点滴、解决问题的思路，以及生活中的有趣发现。</p>
+    <p>千里之行，始于足下。这是第一篇，但不会是最后一篇。</p>
+    <a href="/" class="back">← 回到首页</a>
+  </article>
+
+  <footer>&copy; 2026 我的博客 · Powered by static HTML</footer>
+</body>
+</html>

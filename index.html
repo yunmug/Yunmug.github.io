@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的博客</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .logo { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; text-decoration: none; }
+    nav a { color: #666; text-decoration: none; margin-left: 24px; font-size: 0.9rem; transition: color 0.2s; }
+    nav a:hover { color: #1a1a1a; }
+
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2rem; margin-bottom: 12px; }
+    .hero p { font-size: 1.05rem; opacity: 0.9; max-width: 480px; margin: 0 auto; }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      flex: 1;
+      width: 100%;
+    }
+    .section-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 24px; color: #1a1a1a; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    .card time {
+      font-size: 0.8rem;
+      color: #999;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card .tag {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #666;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 12px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 48px 0;
+      color: #999;
+    }
+    .empty-state .icon { font-size: 3rem; margin-bottom: 16px; }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid #e0e0e0;
+      text-align: center;
+      padding: 24px;
+      color: #999;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">我的博客</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="#articles">文章</a>
+        <a href="https://github.com/yunmug" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>欢迎来到我的博客</h1>
+    <p>记录学习笔记、技术分享与生活随想。</p>
+  </section>
+
+  <main>
+    <h2 class="section-title" id="articles">📝 最新文章</h2>
+    <div class="card-grid" id="cardGrid">
+      <!-- cards begin -->
+      <a class="card" href="/articles/hello-world.html">
+        <time>2026-05-16</time>
+        <h3>第一篇博文</h3>
+        <p>这是我的第一篇博客文章，记录了我开始写博客的心情与期待。</p>
+        <span class="tag">生活</span>
+      </a>
+      <a class="card" href="/articles/static-blog-guide.html">
+        <time>2026-05-15</time>
+        <h3>静态博客搭建指南</h3>
+        <p>不用框架，不用构建工具，手把手教你用纯 HTML/CSS/JS 搭建一个轻量个人博客。部署到 GitHub Pages 只需几分钟。</p>
+        <span class="tag">教程</span>
+      </a>
+      <!-- cards end -->
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 我的博客 · Powered by static HTML
+  </footer>
+
+  <script>
+    (function () {
+      var renderedCount = 2; // ← build script updates this number
+      var grid = document.getElementById('cardGrid');
+
+      function cardEl(a) {
+        var el = document.createElement('a');
+        el.className = 'card';
+        el.href = a.path;
+        el.innerHTML = '<time>' + a.date + '</time><h3>' + a.title + '</h3><p>' + a.excerpt + '</p>' + (a.tag ? '<span class="tag">' + a.tag + '</span>' : '');
+        return el;
+      }
+
+      function showEmpty(msg) {
+        grid.innerHTML = '<div class="empty-state"><div class="icon">📭</div><p>' + msg + '</p></div>';
+      }
+
+      fetch('/articles/manifest.json')
+        .then(function (r) {
+          if (!r.ok) throw new Error('manifest missing');
+          return r.json();
+        })
+        .then(function (articles) {
+          if (!articles.length) {
+            showEmpty('还没有文章，敬请期待～');
+            return;
+          }
+
+          // only render articles beyond the ones already baked into the HTML
+          if (articles.length <= renderedCount) return;
+
+          var empty = grid.querySelector('.empty-state');
+          if (empty) empty.remove();
+
+          articles
+            .sort(function (a, b) { return new Date(b.date) - new Date(a.date); })
+            .slice(renderedCount)
+            .forEach(function (a) { grid.appendChild(cardEl(a)); });
+        })
+        .catch(function () {
+          if (!grid.querySelector('.card')) {
+            showEmpty('还没有文章，敬请期待～');
+          }
+        });
+    })();
+  </script>
+</body>
+</html>

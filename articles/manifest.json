@@ -1,0 +1,16 @@
+[
+  {
+    "title": "第一篇博文",
+    "date": "2026-05-16",
+    "excerpt": "这是我的第一篇博客文章，记录了我开始写博客的心情与期待。",
+    "tag": "生活",
+    "path": "/articles/hello-world.html"
+  },
+  {
+    "title": "静态博客搭建指南",
+    "date": "2026-05-15",
+    "excerpt": "不用框架，不用构建工具，手把手教你用纯 HTML/CSS/JS 搭建一个轻量个人博客。部署到 GitHub Pages 只需几分钟。",
+    "tag": "教程",
+    "path": "/articles/static-blog-guide.html"
+  }
+]
